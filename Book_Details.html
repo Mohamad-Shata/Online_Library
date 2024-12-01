@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="top-intro">
+            <a href="Main.html"><img src="assets/Logo.png" class="Logo"></a>
+            <div class="leftside-header">
+                <div class="search-container">
+                    <select class="search-category" id="search_criteria">
+                        <option>Title</option>
+                        <option>Author</option>
+                        <option>Category</option>
+                    </select>
+                    <input type="text" id="header_search_bar" class="search-bar" placeholder="Search...">
+                    <button type="submit" class="search-button" id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <button type="button" class="Logout" id="Logout"><span>Logout</span></button>
+                <button type="button" id="profile-button" style="display: none;" title="User Profile"><i class="fa-solid fa-user fa-xl" style="color: #000000;"></i></button>
+                <button type="button" class="Login" id="Login">Login</button>
+                <button type="button" class="Signup" id="Signup"><span>Sign Up</span></button>
+            </div>
+
+        </div>
+        <div class="navbar">
+            <a href="Main.html">Home</a>
+            <a href="add_book.html" id="addBook" class="adminFeatures">Add a Book</a>
+            <a href="BookList.html">Book List</a>
+        </div>
+    </header>  
+    <section class="book-page-section">
+        <div class="book-details-menu">
+            <img src="assets/trendingBooks/48_Laws_of_Power_Book_Cover.png" class="book-details-img"><br>
+            <button class="book-details-borrow-btn" id="Book_Details_Borrow_btn">Borrow</button><br>
+            <button class="adminFeatures" id="Book_Details_Edit_btn">Edit</button><br>
+            <button class="adminFeatures" id="Book_Details_Delete_btn">Delete</button>
+        </div>
+
+        <div class="Book-Details" id="Book-Details">  
+            <h1>Overview</h1><hr>
+            <div class="book-details-name-author">
+                <h1>The 48 Laws of Power</h1>
+                <p>by Robert Greene and Joost Elffers</p>
+            </div>
+            <div class="book-details-genre">
+                <h3>Genre</h3>
+                <p>Psychology, Business</p>
+            </div>
+            
+            <div class="book-details-description">
+                <h3>Description</h3>
+                <p>Amoral, cunning, ruthless, and instructive,
+                    this piercing work distills three thousand
+                    years of the history of power in to forty-eight
+                    well explicated laws. As attention--grabbing in 
+                    its design as it is in its content, 
+                    this bold volume outlines the laws of power in 
+                    their unvarnished essence, synthesizing the philosophies 
+                    of Machiavelli, Sun-tzu, Carl von Clausewitz, 
+                    and other great thinkers. Some laws teach the 
+                    need for prudence ("Law 1: Never Outshine the Master"), 
+                    the virtue of stealth ("Law 3: Conceal Your Intentions"), 
+                    and many demand the total absence of mercy 
+                    ("Law 15: Crush Your Enemy Totally"), but like it or not, 
+                    all have applications in real life. Illustrated through the 
+                    tactics of Queen Elizabeth I, Henry Kissinger, P. T. Barnum, 
+                    and other famous figures who have wielded--or been victimized 
+                    by--power, these laws will fascinate any reader interested in 
+                    gaining, observing, or defending against ultimate control.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="logPop" class="loghidden">
+        <div class="popup-content">
+            <span id="logclose" class="close">&times;</span>
+            <form for="" class="loginForm">
+                <h2>Login</h2>
+                <div class="email">
+                    <label for="email-Login"></label>
+                    <i class="fa fa-user"></i>
+                    <input id="email-Login" type="email" placeholder="Enter Your email" autocomplete="on" required>
+
+                </div>
+
+                <div class="password">
+                    <i class="fa fa-lock"></i>
+                    <label for="pass-Login"></label>
+
+                    <input id="pass-Login" type="password" placeholder="Enter your password" required>
+                </div>
+
+                <button id="login-btn">Login</button>
+                <a href="#">Forgot password?</a>
+
+                <div class="newUser">
+                    <span>NEW USER?</span>
+                    <a href="sign_up.html">Sign Up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div id="signPop" class="signhidden">
+        <div class="popup-content">
+            <span id="signclose" class="close">&times;</span>
+            <form for="" class="loginForm" id="myform" onload="return checkBox()">
+                <h2>sign up</h2>
+
+                <div class="Signup_Username">
+                    <label for="Username_Signup"></label>
+                    <i class="fa fa-user"></i>
+                    <input id="Username_Signup" type="text" placeholder="Enter Your Username" required>
+                </div>
+                <div class="email">
+                    <label for="email_Signup"></label>
+                    <i class="fa fa-user"></i>
+                    <input id="email_Signup" type="email" placeholder="Enter Your email" autocomplete="on" required
+                        pattern=".+@gmail\.com" title=" email must contain (.com) at end of it">
+                </div>
+
+                <div class="password">
+                    <label for="pass_Signup"></label>
+                    <i class="fa fa-lock"></i>
+                    <input id="pass_Signup" type="password" placeholder="Enter your password" required
+                        pattern="(?=.*\d)(?=.*[a-zA-Z]).{5,}"
+                        title="Password must contain at least one number ,one letter and be at least 5 characters long">
+                </div>
+
+                <div class="confirm">
+                    <label for="Re-pass"></label>
+                    <i class="fa fa-lock"></i>
+                    <input id="Re-pass" type="password" placeholder="confirm password" required>
+                </div>
+                <div class="isAdmin">
+                    <label for="isAdmin">is_idmin?</label><br>
+                    <input type="checkbox" id="isAdmin" name="isAdmin">
+                </div>
+
+                <button id="Signup-btn" onclick="handleAdminCheckbox()">Sign up</button>
+                <a href="#">Forgot password?</a>
+
+                <div class="newUser">
+                    <span>Already Have an Account?</span>
+                    <a href="login.html">LogIn</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-elements-container">
+            <div class="discover-container">
+                <h3>Discover</h3>
+                <ul>
+                   <li><a href="Main.html">Home</a></li>
+                   <li><a href="BookList.html">Books</a></li>
+                   <li><a href="#" class="back-to-top" onclick="scrollToTop()">Return to Top</a></li>
+                </ul>
+            </div>
+            <div class="help-container">
+                <h3>Help</h3>
+                <ul>
+                   <li><a href="Contact_Form.html">Contact Form</a></li>
+                </ul>
+            </div>
+        </div>
+     <hr>
+        <h2>InkShare</h2>
+        <p>Inkshare is an online Library system to provide booking services for users.</p>
+        <script>
+            function scrollToTop() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        </script>
+            <!-- Used to make the return to top feature in footer usable -->
+        <script src="https://kit.fontawesome.com/788a021d1b.js" crossorigin="anonymous"></script>
+            <!-- Used to get the magnifing glass icon in the header -->
+    </footer>
+    <script src="script/script.js"></script>
+    <script src="script/Book_details_script.js"></script>
+</body>
+</html>

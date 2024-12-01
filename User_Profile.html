@@ -1,0 +1,185 @@
+<!-- user_profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="top-intro">
+            <a href="Main.html"><img src="assets/Logo.png" class="Logo"></a>
+            <div class="leftside-header">
+                <div class="search-container">
+                    <select class="search-category" id="search_criteria">
+                        <option>Title</option>
+                        <option>Author</option>
+                        <option>Category</option>
+                    </select>
+                    <input type="text" id="header_search_bar" class="search-bar" placeholder="Search...">
+                    <button type="submit" class="search-button" id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <button type="button" class="Logout" id="Logout"><span>Logout</span></button>
+                <button type="button" id="profile-button" style="display: none;" title="User Profile"><i class="fa-solid fa-user fa-xl" style="color: #000000;"></i></button>
+                <button type="button" class="Login" id="Login">Login</button>
+                <button type="button" class="Signup" id="Signup"><span>Sign Up</span></button>
+            </div>
+
+        </div>
+        <div class="navbar">
+            <a href="Main.html">Home</a>
+            <a href="add_book.html" id="addBook" class="adminFeatures">Add a Book</a>
+            <a href="BookList.html">Book List</a>
+        </div>
+    </header>
+    <!-- Include navigation bar using SSI -->
+    <!--#include virtual="navigation.html" -->
+    
+
+    <main>
+        <h1>User Profile</h1>
+        <div>
+            <h2>User Information</h2>
+            <!-- <p><strong>Username:</strong> AMR EHAB</p> -->
+            <p  id="User_Profile_Username"><strong>Username:</strong> Mohamed Essam</p>
+            <p  id="User_Profile_Email"><strong>Email:</strong> amr.ehab@example.com</p>
+            <!-- Add more user information here -->
+        </div>
+        <div id="borrowing_history">
+            <h2>Booking History</h2>
+            <!-- <table>
+                <tr>
+                    <th>Book Title</th>
+                    <th>Date Borrowed</th>
+                    <th>Date Returned</th>
+                </tr>
+                <tr>
+                    <td>Web Technology</td>
+                    <td>2024-03-14</td>
+                    <td>2024-03-21</td>
+                </tr>
+                Add more rows for booking history -->
+            <!-- </table> -->
+        </div>
+
+        <div id="logPop" class="loghidden">
+            <div class="popup-content">
+                <span id="logclose" class="close">&times;</span>
+                <form for="" class="loginForm">
+                    <h2>Login</h2>
+                    <div class="email">
+                        <label for="email-Login"></label>
+                        <i class="fa fa-user"></i>
+                        <input id="email-Login" type="email" placeholder="Enter Your email" autocomplete="on" required>
+    
+                    </div>
+    
+                    <div class="password">
+                        <i class="fa fa-lock"></i>
+                        <label for="pass-Login"></label>
+    
+                        <input id="pass-Login" type="password" placeholder="Enter your password" required>
+                    </div>
+    
+                    <button id="login-btn">Login</button>
+                    <a href="#">Forgot password?</a>
+    
+                    <div class="newUser">
+                        <span>NEW USER?</span>
+                        <a href="sign_up.html">Sign Up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+    
+    
+        <div id="signPop" class="signhidden">
+            <div class="popup-content">
+                <span id="signclose" class="close">&times;</span>
+                <form for="" class="loginForm" id="myform" onload="return checkBox()">
+                    <h2>sign up</h2>
+
+                    <div class="Signup_Username">
+                        <label for="Username_Signup"></label>
+                        <i class="fa fa-user"></i>
+                        <input id="Username_Signup" type="text" placeholder="Enter Your Username" required>
+                    </div>
+    
+                    <div class="email">
+                        <label for="email_Signup"></label>
+                        <i class="fa fa-user"></i>
+                        <input id="email_Signup" type="email" placeholder="Enter Your email" autocomplete="on" required
+                            pattern=".+@gmail\.com" title=" email must contain (.com) at end of it">
+                    </div>
+    
+                    <div class="password">
+                        <label for="pass_Signup"></label>
+                        <i class="fa fa-lock"></i>
+                        <input id="pass_Signup" type="password" placeholder="Enter your password" required
+                            pattern="(?=.*\d)(?=.*[a-zA-Z]).{5,}"
+                            title="Password must contain at least one number ,one letter and be at least 5 characters long">
+                    </div>
+    
+                    <div class="confirm">
+                        <label for="Re-pass"></label>
+                        <i class="fa fa-lock"></i>
+                        <input id="Re-pass" type="password" placeholder="confirm password" required>
+                    </div>
+                    <div class="isAdmin">
+                        <label for="isAdmin">is_idmin?</label><br>
+                        <input type="checkbox" id="isAdmin" name="isAdmin">
+                    </div>
+    
+                    <button id="Signup-btn" onclick="handleAdminCheckbox()">Sign up</button>
+                    <a href="#">Forgot password?</a>
+    
+                    <div class="newUser">
+                        <span>Already Have an Account?</span>
+                        <a href="login.html">LogIn</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-elements-container">
+            <div class="discover-container">
+                <h3>Discover</h3>
+                <ul>
+                   <li><a href="Main.html">Home</a></li>
+                   <li><a href="BookList.html">Books</a></li>
+                   <li><a href="#" class="back-to-top" onclick="scrollToTop()">Return to Top</a></li>
+                </ul>
+            </div>
+            <div class="help-container">
+                <h3>Help</h3>
+                <ul>
+                   <li><a href="Contact_Form.html">Contact Form</a></li>
+                </ul>
+            </div>
+        </div>
+     <hr>
+        <h2>InkShare</h2>
+        <p>Inkshare is an online Library system to provide booking services for users.</p>
+        <script>
+            function scrollToTop() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        </script>
+            <!-- Used to make the return to top feature in footer usable -->
+        <script src="https://kit.fontawesome.com/788a021d1b.js" crossorigin="anonymous"></script>
+            <!-- Used to get the magnifing glass icon in the header -->
+    </footer>
+    <script src="script/script.js"></script>
+    <script src="script/user-profile.js"></script>
+</body>
+</html>
